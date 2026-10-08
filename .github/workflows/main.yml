@@ -1,1 +1,22 @@
+name :csv file validator
 
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    validate-file:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Validate CSV file
+              run: python3 validate_csv.py 
+
+            - name: move data to target
+              run : echo "Moving data to target directory"
+
+              
